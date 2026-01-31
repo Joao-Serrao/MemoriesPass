@@ -2,29 +2,11 @@
 
 # 
 
-# \*\*Memories Pass\*\* is a small third-person prototype developed in Godot (GDScript) that showcases player movement, camera control, and a lock-on combat system. All assets are custom-made for a compact medieval village environment, with texture resources provided by \[PolyHaven](https://polyhaven.com/).
+##### Memories Pass is a small third-person prototype developed in Godot (GDScript) that showcases player movement, camera control, and a lock-on combat system. All assets are custom-made for a compact medieval village environment, with texture resources provided by \[PolyHaven](https://polyhaven.com/).
 
 # 
 
-# > ⚠️ This is a work-in-progress project and will continue to evolve with new features and visual improvements.
-
-# 
-
-# ---
-
-# 
-
-# \## Features
-
-# 
-
-# \- \*\*Custom Player \& Camera System\*\*: Smooth transitions and directional movement.
-
-# \- \*\*Lock-On Mechanic\*\*: Supports multiple enemies and handles various edge cases.
-
-# \- \*\*Original 3D Models\*\*: Custom characters and environment assets.
-
-# \- \*\*Polished Medieval Village Environment\*\*: Textures provided by PolyHaven.
+##### > ⚠️ This is a work-in-progress project and will continue to evolve with new features and visual improvements.
 
 # 
 
@@ -32,31 +14,17 @@
 
 # 
 
-# \## Controls
+# Features
 
 # 
 
-# | Key | Action |
+##### \- Custom Player \& Camera System: Smooth transitions and directional movement.
 
-# |-----|--------|
+##### \- Lock-On Mechanic: Supports multiple enemies and handles various edge cases.
 
-# | W / A / S / D | Move |
+##### \- Original 3D Models: Custom characters and environment assets.
 
-# | Left Shift | Run |
-
-# | Space | Jump |
-
-# | R | Equip sword |
-
-# | Left Mouse Button | Attack |
-
-# | Q | Toggle Lock-On |
-
-# | Left / Right Arrows | Switch Target |
-
-# | Scroll Wheel | Zoom camera |
-
-# | X | Quit game |
+##### \- Polished Medieval Village Environment: Textures provided by PolyHaven.
 
 # 
 
@@ -64,27 +32,31 @@
 
 # 
 
-# \## Screenshots
+# Controls
 
 # 
 
-# \### Player \& Environment
+##### | Key | Action |
 
-# !\[Player Movement](path/to/screenshot1.png)
+##### |-----|--------|
 
-# !\[Village Environment](path/to/screenshot2.png)
+##### | W / A / S / D | Move |
 
-# 
+##### | Left Shift | Run |
 
-# \### Combat \& Lock-On
+##### | Space | Jump |
 
-# !\[Combat Scene](path/to/screenshot3.png)
+##### | R | Equip sword |
 
-# !\[Lock-On Mechanic](path/to/screenshot4.png)
+##### | Left Mouse Button | Attack |
 
-# 
+##### | Q | Toggle Lock-On |
 
-# > Replace the `path/to/...` with your actual image paths or GitHub links.
+##### | Left / Right Arrows | Switch Target |
+
+##### | Scroll Wheel | Zoom camera |
+
+##### | X | Quit game |
 
 # 
 
@@ -92,9 +64,27 @@
 
 # 
 
-# \## Installation
+# Screenshots
 
 # 
 
-# 1\. https://joao-serrao.itch.io/memories-pass/download/iMXRu5sRFxo16Hp6b\_e9xTCt8k85NliFz4T4bTCA
+### Player \& Environment
+
+##### !\[Overview](images/stanfing.png)
+
+##### !\[Attacking](images/swing.png)
+
+# 
+
+# 
+
+# ---
+
+# 
+
+# Installation
+
+# 
+
+##### 1\. https://joao-serrao.itch.io/memories-pass/download/iMXRu5sRFxo16Hp6b\_e9xTCt8k85NliFz4T4bTCA
 
