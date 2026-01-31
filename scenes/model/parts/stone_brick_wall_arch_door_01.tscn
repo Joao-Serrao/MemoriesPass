@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6dyvgen7orfo"]
+
+[ext_resource type="PackedScene" uid="uid://bqvunoiwyebrb" path="res://scenes/model/parts/wooden_arch_01.tscn" id="1_2jlub"]
+[ext_resource type="PackedScene" uid="uid://ceqs1v3ohymft" path="res://source/glb/stone_brick_wall_arch_door_01_GLB.tscn" id="2_2jlub"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlknk"]
+size = Vector3(2.1054688, 3.9888306, 0.25964355)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xk0cf"]
+size = Vector3(1.7806396, 1.1200562, 0.27331543)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ouhbb"]
+size = Vector3(0.26263428, 0.25512695, 0.24365234)
+
+[node name="stoneBrickWallArchDoor01" type="Node3D"]
+
+[node name="woodenArch01" parent="." instance=ExtResource("1_2jlub")]
+
+[node name="stoneBrickWallArchDoor02" parent="." instance=ExtResource("2_2jlub")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9458632, 1.9998474, 0.0021362305)
+shape = SubResource("BoxShape3D_xlknk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94707, 2, 0.002)
+shape = SubResource("BoxShape3D_xlknk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043033063, 3.417025, 0.004333496)
+shape = SubResource("BoxShape3D_xk0cf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7575989, 2.7268968, 0.0012207031)
+shape = SubResource("BoxShape3D_ouhbb")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7662973, 2.7268968, 0.0012207031)
+shape = SubResource("BoxShape3D_ouhbb")

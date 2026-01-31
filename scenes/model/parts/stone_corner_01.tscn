@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://mkiwur735e1p"]
+
+[ext_resource type="PackedScene" uid="uid://dv5hiwd4lnm24" path="res://source/glb/stone_corner_01_GLB.tscn" id="1_i8nw5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tca2r"]
+size = Vector3(1.2303786, 3.9736938, 0.6130371)
+
+[node name="stoneCorner01" type="Node3D"]
+
+[node name="stoneCorner013" parent="." instance=ExtResource("1_i8nw5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3090155)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2894833, 2.0014954, 0.012084961)
+shape = SubResource("BoxShape3D_tca2r")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 1.7347235e-17, -1, 0, -4.3711488e-08, 0.0046286006, 2.0014951, -0.3600001)
+shape = SubResource("BoxShape3D_tca2r")

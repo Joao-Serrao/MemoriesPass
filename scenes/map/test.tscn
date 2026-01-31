@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6vf1aji6dy38"]
+
+[ext_resource type="Script" uid="uid://cj0hhuca60w2v" path="res://scripts/world/game.gd" id="1_1dadr"]
+[ext_resource type="Texture2D" uid="uid://cel2l6fwhou2g" path="res://textures/magalies_field_sunset_4k.exr" id="2_0eexf"]
+[ext_resource type="PackedScene" uid="uid://dgwibapyg5vtd" path="res://scenes/terrain_3d.tscn" id="3_3i6xe"]
+[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://scenes/enemy/enemy.tscn" id="5_3fd21"]
+[ext_resource type="PackedScene" uid="uid://chrvrcpgdi83t" path="res://scenes/object/testRamp.tscn" id="6_a8rh7"]
+[ext_resource type="PackedScene" uid="uid://uieo3cvbd8vn" path="res://scenes/model/structure/medival_house_01.tscn" id="7_yxsyo"]
+[ext_resource type="PackedScene" uid="uid://cx7ph4f4py1r2" path="res://source/glb/headless_chicken_GLB.tscn" id="8_0eexf"]
+[ext_resource type="PackedScene" uid="uid://blq3x7pbma6p1" path="res://scenes/model/parts/roof_wall_corner_01.tscn" id="8_1dadr"]
+[ext_resource type="PackedScene" uid="uid://dpblsd0mj2xa4" path="res://scenes/model/parts/stone_floor_02.tscn" id="9_0eexf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ehkex"]
+panorama = ExtResource("2_0eexf")
+
+[sub_resource type="Sky" id="Sky_xersf"]
+sky_material = SubResource("PanoramaSkyMaterial_ehkex")
+
+[sub_resource type="Environment" id="Environment_6uqi0"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_xersf")
+ambient_light_sky_contribution = 0.01
+glow_levels/1 = 2.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_strength = 0.2
+glow_bloom = 0.2
+glow_blend_mode = 0
+glow_hdr_scale = 1.46
+volumetric_fog_enabled = true
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_1dadr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6uqi0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.45243478, 0.89179754, 0, -0.89179754, 0.45243478, 0.11140692, 28.049551, 3.7112992)
+shadow_enabled = true
+
+[node name="Terrain3D" parent="." instance=ExtResource("3_3i6xe")]
+
+[node name="Enemy" parent="." instance=ExtResource("5_3fd21")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -19.759323)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_3fd21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0464516, 0, -15.867135)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_3fd21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3022485)
+
+[node name="Enemy4" parent="." instance=ExtResource("5_3fd21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3269203, -5.0192523)
+
+[node name="Node3D" parent="." instance=ExtResource("6_a8rh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.907149, 0, 0)
+
+[node name="medivalHouse01" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 6.982047, -9.536743e-07, -3.9259086)
+
+[node name="medivalHouse02" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 11.032274, 0, 9.640528)
+
+[node name="medivalHouse03" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, 21.813057)
+
+[node name="medivalHouse04" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 11.032274, 0, 34.453583)
+
+[node name="medivalHouse05" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 23.377542, 0, -3)
+
+[node name="medivalHouse06" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 27.409817, 0, 9.640528)
+
+[node name="medivalHouse07" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 23.377542, 0, 21.813057)
+
+[node name="medivalHouse08" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 27.409817, 0, 34.453583)
+
+[node name="medivalHouse09" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 40.441643, 0, -3)
+
+[node name="medivalHouse10" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 44.473915, 0, 9.640528)
+
+[node name="medivalHouse11" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 40.441643, 0, 21.813057)
+
+[node name="medivalHouse12" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 44.473915, 0, 34.453583)
+
+[node name="medivalHouse13" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 56.819183, 0, -3)
+
+[node name="medivalHouse14" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 60.85146, 0, 9.640528)
+
+[node name="medivalHouse15" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 56.819183, 0, 21.813057)
+
+[node name="medivalHouse16" parent="." instance=ExtResource("7_yxsyo")]
+transform = Transform3D(-0.75, 0, -1.13246855e-07, 0, 0.75, 0, 1.13246855e-07, 0, -0.75, 60.85146, 0, 34.453583)
+
+[node name="roofWallCorner01" parent="." instance=ExtResource("8_1dadr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1373863, 0, 3.4115438)
+
+[node name="headlessChicken" parent="." instance=ExtResource("8_0eexf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9262195, 0, 0)
+
+[node name="stoneFloor02" parent="." instance=ExtResource("9_0eexf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.590214, 0.28971398, 11.0869465)

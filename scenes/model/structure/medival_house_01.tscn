@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://uieo3cvbd8vn"]
+
+[ext_resource type="PackedScene" uid="uid://dpblsd0mj2xa4" path="res://scenes/model/parts/stone_floor_02.tscn" id="1_sgfkw"]
+[ext_resource type="PackedScene" uid="uid://c6dyvgen7orfo" path="res://scenes/model/parts/stone_brick_wall_arch_door_01.tscn" id="2_x6ili"]
+[ext_resource type="PackedScene" uid="uid://bsu6cd540pl87" path="res://scenes/model/parts/wooden_beam_01.tscn" id="4_l27is"]
+[ext_resource type="PackedScene" uid="uid://bumdbl4pxmov0" path="res://scenes/model/parts/stone_corner_02.tscn" id="5_sgfkw"]
+[ext_resource type="PackedScene" uid="uid://dlfb08wbtsaif" path="res://scenes/model/parts/stone_brick_wall_01.tscn" id="5_x6ili"]
+[ext_resource type="PackedScene" uid="uid://dpp8grt3moqpw" path="res://scenes/model/parts/stone_brick_wall_window_01.tscn" id="6_dt1vg"]
+[ext_resource type="PackedScene" uid="uid://bouxobiy33hax" path="res://scenes/model/parts/wooden_beam_02.tscn" id="7_l27is"]
+[ext_resource type="PackedScene" uid="uid://dhbmuggh2a7n8" path="res://scenes/model/parts/grey_roofing_01_left.tscn" id="8_juskb"]
+[ext_resource type="PackedScene" uid="uid://cuwpvtb26c35v" path="res://scenes/model/parts/grey_roofing_01_right.tscn" id="9_0bdhg"]
+[ext_resource type="PackedScene" uid="uid://blq3x7pbma6p1" path="res://scenes/model/parts/roof_wall_corner_01.tscn" id="10_ifyv6"]
+
+[node name="medivalHouse01" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="stoneFloor02" parent="." instance=ExtResource("1_sgfkw")]
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1.3, -0.6421665, -0.16728508, -0.7393565)
+
+[node name="stoneBrickWallArchDoor01" parent="." instance=ExtResource("2_x6ili")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05004368, 2.62)
+
+[node name="woodenBeam01" parent="." instance=ExtResource("4_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.974, 0.05004368, 2.626)
+
+[node name="stoneFloor03" parent="." instance=ExtResource("1_sgfkw")]
+transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1.3, 6.22, -0.167, -0.739)
+
+[node name="stoneBrickWall01" parent="." instance=ExtResource("5_x6ili")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.901, 0.05, -0.953)
+
+[node name="stoneBrickWall03" parent="." instance=ExtResource("5_x6ili")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.758, 0.05004368, -0.953)
+
+[node name="stoneCorner02" parent="." instance=ExtResource("5_sgfkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.754, 0.05004368, 2.0096557)
+
+[node name="stoneBrickWallWindow01" parent="." instance=ExtResource("6_dt1vg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.056, 0.05, 2.62)
+
+[node name="stoneCorner03" parent="." instance=ExtResource("5_sgfkw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.294, 0.05, 2.579)
+
+[node name="woodenBeam02" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, -1.4816976, 3.849843, 2.62)
+
+[node name="woodenBeam03" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 4.5170445, 3.849843, 2.62)
+
+[node name="woodenBeam04" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(0.4, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 8.716239, 3.849843, 2.62)
+
+[node name="woodenBeam05" parent="." instance=ExtResource("4_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.877512, 0.05, -4.101146)
+
+[node name="stoneBrickWallWindow02" parent="." instance=ExtResource("6_dt1vg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.056, 0.05, -4.1305313)
+
+[node name="woodenBeam06" parent="." instance=ExtResource("4_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.974, 0.05, -4.131)
+
+[node name="stoneCorner04" parent="." instance=ExtResource("5_sgfkw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.2008445, 0.05, -4.131)
+
+[node name="stoneBrickWall04" parent="." instance=ExtResource("5_x6ili")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -4.131)
+
+[node name="woodenBeam07" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, -1.4816976, 3.849843, -4.131)
+
+[node name="woodenBeam08" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 4.5170445, 3.849843, -4.131)
+
+[node name="woodenBeam09" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(0.4, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 8.716239, 3.849843, -4.131)
+
+[node name="woodenBeam10" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, -3.758, 3.85, -2.8302622)
+
+[node name="woodenBeam11" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, -3.758, 3.85, 1.3695784)
+
+[node name="woodenBeam12" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, 8.901, 3.85, -2.8302622)
+
+[node name="woodenBeam13" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, 8.901, 3.85, 1.3695784)
+
+[node name="greyRoofing01_Left" parent="." instance=ExtResource("8_juskb")]
+transform = Transform3D(1.25, 0, 0, 0, 0.93969256, -0.3078181, 0, 0.3420201, 0.84572333, -1.0708599, 4.8839536, 1.7236602)
+
+[node name="greyRoofing01_Right" parent="." instance=ExtResource("9_0bdhg")]
+transform = Transform3D(1.25, 0, 0, 0, 0.93969256, -0.3078181, 0, 0.3420201, 0.84572333, 6.3707166, 4.8844295, 1.7236637)
+
+[node name="greyRoofing01_Left2" parent="." instance=ExtResource("8_juskb")]
+transform = Transform3D(-1.25, -2.9900345e-08, -7.393548e-08, 0, 0.93969256, -0.3078181, 1.09278474e-07, -0.3420201, -0.84572333, 6.371, 4.884, -3.299)
+
+[node name="greyRoofing01_Right2" parent="." instance=ExtResource("9_0bdhg")]
+transform = Transform3D(-1.25, -2.9900345e-08, -7.393548e-08, 0, 0.93969256, -0.3078181, 1.09278474e-07, -0.3420201, -0.84572333, -1.071, 4.884, -3.299)
+
+[node name="roofWallCorner01" parent="." instance=ExtResource("10_ifyv6")]
+transform = Transform3D(-3.059797e-08, 0, -1, 0, 0.75, 0, 0.7, 0, -4.371139e-08, -3.758, 4.3595977, 1.2862601)
+
+[node name="roofWallCorner02" parent="." instance=ExtResource("10_ifyv6")]
+transform = Transform3D(-3.059797e-08, 0, 1, 0, 0.75, 0, -0.7, 0, -4.371139e-08, -3.758, 4.3595977, -2.8640285)
+
+[node name="roofWallCorner03" parent="." instance=ExtResource("10_ifyv6")]
+transform = Transform3D(-3.059797e-08, 0, -1, 0, 0.75, 0, 0.7, 0, -4.371139e-08, 8.901, 4.3595977, 1.2862601)
+
+[node name="roofWallCorner04" parent="." instance=ExtResource("10_ifyv6")]
+transform = Transform3D(-3.059797e-08, 0, 1, 0, 0.75, 0, -0.7, 0, -4.371139e-08, 8.901, 4.3595977, -2.8640285)
+
+[node name="woodenBeam14" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, -1.4816976, 3.849843, 0.34492016)
+
+[node name="woodenBeam15" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 4.5170445, 3.849843, 0.34492016)
+
+[node name="woodenBeam16" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(0.4, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 8.716239, 3.849843, 0.34492016)
+
+[node name="woodenBeam17" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, -1.4816976, 3.849843, -2.0864992)
+
+[node name="woodenBeam18" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 4.5170445, 3.849843, -2.0864992)
+
+[node name="woodenBeam19" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(0.4, 0, 0, 0, 1.1, 0, 0, 0, 1.3, 8.716239, 3.849843, -2.0864992)
+
+[node name="woodenBeam20" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, 2.9820018, 3.85, -2.8302622)
+
+[node name="woodenBeam21" parent="." instance=ExtResource("7_l27is")]
+transform = Transform3D(-3.059797e-08, 0, 1.3, 0, 1.1, 0, -0.7, 0, -5.6824803e-08, 2.9820018, 3.85, 1.3695784)
+
+[node name="woodenBeam22" parent="." instance=ExtResource("4_l27is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.974, 0.05004368, -0.7419165)

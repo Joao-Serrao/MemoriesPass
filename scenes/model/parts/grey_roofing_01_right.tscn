@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwpvtb26c35v"]
+
+[ext_resource type="PackedScene" uid="uid://b6jui4dpb6yr" path="res://source/glb/grey_roofing_01_right_GLB.tscn" id="1_g04kt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggybs"]
+size = Vector3(6.0016174, 0.16711426, 5.9939346)
+
+[node name="greyRoofing01_Right" type="Node3D"]
+
+[node name="greyRoofing01_Right3" parent="." instance=ExtResource("1_g04kt")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00047302246, 0.034118652, -0.0036506653)
+shape = SubResource("BoxShape3D_ggybs")

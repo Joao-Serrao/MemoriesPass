@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://7i2x3ia41kmf" path="res://scripts/player/playerGd.gd" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://c7yv1ayxievc5" path="res://scripts/player/spring_arm_3d.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cx7ph4f4py1r2" path="res://source/glb/headless_chicken_GLB.tscn" id="3_lvxji"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sweqy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qhqgy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqkch"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qhqgy"]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_mask = 14
+collision_priority = 10.0
+script = ExtResource("1_dqkch")
+
+[node name="CollisionWorld" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sweqy")
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="headlessChicken" parent="Pivot" instance=ExtResource("3_lvxji")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 1.2582402, -0.20610142)
+collision_mask = 4
+shape = SubResource("SphereShape3D_qhqgy")
+spring_length = 5.0
+script = ExtResource("2_i3pqv")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="StairBelowRayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, -0.75, 0)
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StairBelowRayCast3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.75, 0)
+mesh = SubResource("BoxMesh_dqkch")
+
+[node name="StairAheadRayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.76322514)
+target_position = Vector3(0, -0.55, 0)
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StairAheadRayCast3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qhqgy")

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stellar Blade - Lily (Stargazer Coat)
+* source:	https://sketchfab.com/3d-models/stellar-blade-lily-stargazer-coat-e5187493dcb84fa59e909a8d22542f35
+* author:	VITU6018 (https://sketchfab.com/4bb5bf0bebe74f3397416a27bad406)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stellar Blade - Lily (Stargazer Coat)" (https://sketchfab.com/3d-models/stellar-blade-lily-stargazer-coat-e5187493dcb84fa59e909a8d22542f35) by VITU6018 (https://sketchfab.com/4bb5bf0bebe74f3397416a27bad406) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

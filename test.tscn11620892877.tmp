@@ -1,0 +1,125 @@
+[gd_scene load_steps=23 format=3 uid="uid://b6vf1aji6dy38"]
+
+[ext_resource type="Script" uid="uid://cj0hhuca60w2v" path="res://scripts/game.gd" id="1_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="2_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://cel2l6fwhou2g" path="res://textures/magalies_field_sunset_4k.exr" id="2_g14j6"]
+[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://scenes/enemy.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://chrvrcpgdi83t" path="res://scenes/testRamp.tscn" id="4_ppyta"]
+[ext_resource type="PackedScene" uid="uid://cpapknshi4k7y" path="res://scenes/Sword.tscn" id="6_vbegm"]
+[ext_resource type="PackedScene" uid="uid://dgwibapyg5vtd" path="res://scenes/terrain_3d.tscn" id="7_vbegm"]
+[ext_resource type="PackedScene" uid="uid://chp5bb2su6s7m" path="res://source/Bastard_Sword_Golden.glb" id="8_ehkex"]
+[ext_resource type="PackedScene" uid="uid://clnnghnhyorge" path="res://source/stoneBrickWall01.glb" id="9_xersf"]
+[ext_resource type="PackedScene" uid="uid://dlfb08wbtsaif" path="res://stone_brick_wall_01.tscn" id="10_00tp4"]
+[ext_resource type="PackedScene" uid="uid://bsu6cd540pl87" path="res://wooden_beam_01.tscn" id="11_77dp3"]
+[ext_resource type="PackedScene" uid="uid://c6dyvgen7orfo" path="res://stone_brick_wall_arch_door_01.tscn" id="12_5tkv4"]
+[ext_resource type="PackedScene" uid="uid://mkiwur735e1p" path="res://stone_corner_01.tscn" id="13_b0q6j"]
+[ext_resource type="PackedScene" uid="uid://bumdbl4pxmov0" path="res://stone_corner_02.tscn" id="14_mhym6"]
+[ext_resource type="PackedScene" uid="uid://uieo3cvbd8vn" path="res://medival_house_01.tscn" id="15_mhym6"]
+[ext_resource type="PackedScene" uid="uid://c3l3ba7vjq02r" path="res://stone_floor_01.tscn" id="16_a3se8"]
+[ext_resource type="PackedScene" uid="uid://dpblsd0mj2xa4" path="res://stone_floor_02.tscn" id="17_uty7l"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ehkex"]
+panorama = ExtResource("2_g14j6")
+
+[sub_resource type="Sky" id="Sky_xersf"]
+sky_material = SubResource("PanoramaSkyMaterial_ehkex")
+
+[sub_resource type="Environment" id="Environment_6uqi0"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_xersf")
+ambient_light_sky_contribution = 0.01
+glow_enabled = true
+glow_levels/1 = 2.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_strength = 0.2
+glow_bloom = 0.2
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 1.46
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf4mk"]
+size = Vector2(100, 100)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_6uqi0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6uqi0")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_37kl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("PlaneMesh_mf4mk")
+skeleton = NodePath("../../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.45243478, 0.89179754, 0, -0.89179754, 0.45243478, 0.11140692, 28.049551, 3.7112992)
+shadow_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -19.759323)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0464516, 0, -15.867135)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3022485)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.0192523)
+
+[node name="Node3D" parent="." instance=ExtResource("4_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.907149, 0, 0)
+
+[node name="Terrain3D" parent="." instance=ExtResource("7_vbegm")]
+
+[node name="Bastard_Sword_Golden" parent="." instance=ExtResource("8_ehkex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11124286, 8.672176, 2.927406)
+
+[node name="Pivot" parent="." instance=ExtResource("6_vbegm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.657554, 2.298771)
+
+[node name="stoneBrickWall01" parent="." instance=ExtResource("9_xersf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.015487, -0.0056056865, 10.511679)
+
+[node name="stoneBrickWall02" parent="." instance=ExtResource("10_00tp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
+[node name="woodenBeam01" parent="." instance=ExtResource("11_77dp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9682832, 0, 11.02527)
+
+[node name="stoneBrickWallArchDoor01" parent="." instance=ExtResource("12_5tkv4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0085049, 0, 13.8369875)
+
+[node name="stoneCorner01" parent="." instance=ExtResource("13_b0q6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17.6)
+
+[node name="stoneCorner02" parent="." instance=ExtResource("14_mhym6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.529846, 0, 10.969488)
+
+[node name="medivalHouse01" parent="." instance=ExtResource("15_mhym6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+
+[node name="stoneFloor01" parent="." instance=ExtResource("16_a3se8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.561598, -1.7828841, 6.447236)
+
+[node name="stoneFloor02" parent="." instance=ExtResource("17_uty7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.677663, 0, 13.406673)
+
+[node name="Player" parent="." instance=ExtResource("2_8uh7m")]

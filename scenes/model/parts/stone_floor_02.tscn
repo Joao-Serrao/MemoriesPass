@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpblsd0mj2xa4"]
+
+[ext_resource type="PackedScene" uid="uid://cfjfrkem5x10t" path="res://source/glb/stone_floor_02_GLB.tscn" id="1_n2q7a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_usad5"]
+size = Vector3(6.0025463, 0.40829468, 5.998497)
+
+[node name="stoneFloor02" type="Node3D"]
+
+[node name="stoneFloor023" parent="." instance=ExtResource("1_n2q7a")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012464523, 0.025527954, -0.0022621155)
+shape = SubResource("BoxShape3D_usad5")

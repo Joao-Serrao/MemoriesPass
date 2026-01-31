@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlfb08wbtsaif"]
+
+[ext_resource type="PackedScene" uid="uid://cvxo7o3jykddk" path="res://source/glb/stone_brick_wall_01_GLB.tscn" id="1_ud4l2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_muxit"]
+size = Vector3(5.999115, 4.00832, 0.23864746)
+
+[node name="stoneBrickWall01" type="Node3D"]
+
+[node name="stoneBrickWall01" parent="." instance=ExtResource("1_ud4l2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00062561035, 2.0027142, -0.003112793)
+shape = SubResource("BoxShape3D_muxit")

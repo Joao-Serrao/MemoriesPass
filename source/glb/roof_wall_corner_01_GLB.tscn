@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=4 uid="uid://buofa0omuhi56"]
+
+[ext_resource type="Texture2D" uid="uid://dday0uconih2e" path="res://source/textures/weatheredBrownPlanks01_diff_4k.jpg" id="1_ud5sc"]
+[ext_resource type="Texture2D" uid="uid://blwqfw8p7m5wo" path="res://source/textures/weatheredBrownPlanks01_rough_4k.png" id="2_thug4"]
+[ext_resource type="Texture2D" uid="uid://c3kxeop3yf66x" path="res://source/textures/weatheredBrownPlanks01_nor_gl_4k.png" id="3_gegtw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kslg"]
+resource_name = "brownWoodPlanks01"
+cull_mode = 2
+albedo_texture = ExtResource("1_ud5sc")
+metallic_texture = ExtResource("2_thug4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_thug4")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_gegtw")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1y0cx"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAwAAAAQAAQAEAAIAAwAEAAUAAQAFAAQAAwAFAAEA"),
+"name": "brownWoodPlanks01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAA//8AAP//AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_opx40"]
+resource_name = "roofWallCorner01_Cube_007"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD//////7//////AAD/v/////8AAAAAtAL/////AAAAAC4p//8uKQAAAAAAAP//AAAAAP/////rMf//cB0AAPMxAABwHf//"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkABwAKAAgACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_2kslg"),
+"name": "brownWoodPlanks01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAP//////P///AAD///8/AAAAAP///z8AAP//AABUFv//AAD//1QWAAD/////VBb//wAAAABUFgAAAAAAAP////8AAAAA//8AAP//AAD//wAAAAAAAFTV//8AAP//VNX//wAAAABU1QAAAAD//1TVVNVU1VTVVNVU1VTVVNVU1f///////////////wQ19hUENfYVBDX2FQQ19hX/v/+//7//v/+//79UVVRVVFVUVVRVVFVUVVRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1y0cx")
+
+[node name="roofWallCorner01" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 1, 0)
+mesh = SubResource("ArrayMesh_opx40")
+skeleton = NodePath("")

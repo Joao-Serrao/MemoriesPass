@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpp8grt3moqpw"]
+
+[ext_resource type="PackedScene" uid="uid://c364wvpox52fx" path="res://source/glb/stone_brick_wall_window_01_GLB.tscn" id="1_sj66u"]
+[ext_resource type="PackedScene" uid="uid://cu7f4bqn6m5ll" path="res://scenes/model/parts/wooden_window_01.tscn" id="2_3yfrr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8uyn"]
+size = Vector3(5.999115, 4.00832, 0.23864746)
+
+[node name="stoneBrickWallWindow01" type="Node3D"]
+
+[node name="stoneBrickWallWindow01" parent="." instance=ExtResource("1_sj66u")]
+
+[node name="woodenWindow01" parent="." instance=ExtResource("2_3yfrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00062561035, 2.0027142, -0.003112793)
+shape = SubResource("BoxShape3D_e8uyn")

@@ -1,0 +1,123 @@
+[gd_scene load_steps=20 format=3 uid="uid://dgwibapyg5vtd"]
+
+[ext_resource type="Texture2D" uid="uid://dbg0fqxpsckcv" path="res://terrain/textures/mossyRockGround01_alb_ht.dds" id="1_hqmxd"]
+[ext_resource type="Texture2D" uid="uid://bjnbto0bdla3s" path="res://terrain/textures/mossyRockGround01_nrm_rgh.dds" id="2_d42qx"]
+[ext_resource type="Texture2D" uid="uid://duvxqp1a3edcm" path="res://terrain/textures/rockyTerrain02_alb_ht.dds" id="3_g2q4t"]
+[ext_resource type="Texture2D" uid="uid://do817xcx6oea8" path="res://terrain/textures/rockyTerrain02_nrm_rgh.dds" id="4_xdrdq"]
+[ext_resource type="Texture2D" uid="uid://ct0dporfolvgh" path="res://terrain/textures/grassPath02_alb_ht.dds" id="5_iiy3n"]
+[ext_resource type="Texture2D" uid="uid://blfxi7x61jciu" path="res://terrain/textures/grassPath02_nrm_rgh.dds" id="6_6nop0"]
+[ext_resource type="Texture2D" uid="uid://bnw47v0eo72qi" path="res://terrain/textures/forestGround00_alb_ht.dds" id="7_g2q4t"]
+[ext_resource type="Texture2D" uid="uid://cp5rrm8hy64u0" path="res://terrain/textures/forestGround00_nrm_rgh.dds" id="8_xdrdq"]
+
+[sub_resource type="Gradient" id="Gradient_dtxci"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bryhc"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vjimn"]
+noise = SubResource("FastNoiseLite_bryhc")
+color_ramp = SubResource("Gradient_dtxci")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_twong"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.0,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.3730000177175,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_vjimn"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc156"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_5w656"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_bc156")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_rg8o0"]
+name = "mossyRockGround01_alb_ht"
+albedo_texture = ExtResource("1_hqmxd")
+normal_texture = ExtResource("2_d42qx")
+ao_strength = 2.0
+uv_scale = 0.3
+detiling_rotation = 0.046
+detiling_shift = 0.055
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_xdrdq"]
+name = "rockyTerrain02_alb_ht"
+id = 1
+albedo_texture = ExtResource("3_g2q4t")
+normal_texture = ExtResource("4_xdrdq")
+normal_depth = 0.885
+roughness = 0.367
+uv_scale = 0.5
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_g2q4t"]
+name = "grassPath02_alb_ht"
+id = 2
+albedo_texture = ExtResource("5_iiy3n")
+normal_texture = ExtResource("6_6nop0")
+normal_depth = 0.683
+roughness = -0.239
+uv_scale = 1.0
+detiling_rotation = 0.046
+detiling_shift = 0.055
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_iiy3n"]
+name = "forestGround00_alb_ht"
+id = 3
+albedo_texture = ExtResource("7_g2q4t")
+normal_texture = ExtResource("8_xdrdq")
+ao_strength = 0.977
+roughness = -0.202
+uv_scale = 1.0
+detiling_rotation = 0.046
+detiling_shift = 0.073
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_hqmxd"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_5w656")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_rg8o0"), SubResource("Terrain3DTextureAsset_xdrdq"), SubResource("Terrain3DTextureAsset_g2q4t"), SubResource("Terrain3DTextureAsset_iiy3n")])
+
+[node name="Terrain3D" type="Terrain3D"]
+data_directory = "res://terrain"
+material = SubResource("Terrain3DMaterial_twong")
+assets = SubResource("Terrain3DAssets_hqmxd")
+collision_layer = 4
+collision_mask = 15
+top_level = true
+metadata/_edit_lock_ = true
