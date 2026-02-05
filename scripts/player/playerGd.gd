@@ -11,6 +11,7 @@ var stopped = true
 var running = false
 var jumping = false
 var falling = false
+var blockMovement = false
 var jump_tween: Tween = null
 
 @onready var anim_tree = %AnimationPlayer
@@ -193,10 +194,12 @@ func handleCombo() -> void:
 		handleAttack()
 
 func handleJump() -> void:
+	blockMovement = false
 	target_velocity.y = jump_force
 	
 func handleFall() -> void:
 	jumping = false
+	blockMovement = false
 	jump_tween = create_tween()
 	jump_tween.tween_property(%AnimationTree, "parameters/AirBlend/blend_amount", 0.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
@@ -215,6 +218,7 @@ func handleMovementGround(_delta) -> void:
 		direction.x -= 1
 	if Input.is_action_just_pressed("jump") and is_on_floor() and jumping == false:
 		jumping = true
+		blockMovement = true
 		jump_tween = create_tween()
 		%AnimationTree.set("parameters/AirSeek/seek_request", 0.0)
 		%AnimationTree.set("parameters/AirMovement/blend_position", -1.0)
@@ -338,6 +342,9 @@ func _physics_process(delta):
 		handleMovementGround(delta)
 	else:
 		handleMovementAir(delta)
+	
+	if blockMovement:
+		target_velocity = Vector3.ZERO
 		
 	velocity = target_velocity
 		
@@ -361,3 +368,7 @@ func attackFinished() -> void:
 	
 	
 	equipped_weapon.resetCombo()
+
+
+func flipBlockMovement() -> void:
+	blockMovement = !blockMovement

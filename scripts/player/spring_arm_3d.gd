@@ -53,7 +53,10 @@ func handleLockOn(player_pos, forward) -> void:
 			if most_centered != null:
 				locked = most_centered
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position:y", global_position.y + locked.getHeight()/2, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+				var posY = global_position.y + locked.getHeight()/2
+				posY = min(posY, global_position.y + 3.0)
+				
+				tween.tween_property(self, "global_position:y", posY, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	else:
 		disableLockOn(forward)
 
@@ -111,15 +114,27 @@ func handleCameraPosition(delta, forward, player) -> void:
 		if locked != null:
 			if locked.is_in_group("VisibleCloseEnemies"):
 				var target_dir = (locked.global_position - global_position).normalized()
-				#target_dir.y = clamp(target_dir.y, player.global_position.y, player.global_position.y + player.getHeight())
 				
-				var desired = Transform3D().looking_at(target_dir, Vector3.UP).basis
+				var desired = Basis.looking_at(target_dir, Vector3.UP)
 				
-				basis = basis.slerp(desired, delta * 5.0)  
+				var current_forward = -basis.z
+				current_forward.y = 0.0
+				var desired_forward = -desired.z
+				
+				var angle = current_forward.angle_to(desired_forward)
+				
+				var max_angle = deg_to_rad(45.0)
+				
+				if angle > max_angle:
+					var t = max_angle / angle
+					var clamped_forward = current_forward.slerp(desired_forward, t)
+					desired = Basis.looking_at(clamped_forward, Vector3.UP)
+				
+				basis = basis.slerp(desired, delta * 5.0)
 				
 				if not player.running:
 					target_dir.y = 0
-					var modelDesired = Transform3D().looking_at(-target_dir, Vector3.UP).basis
+					var modelDesired = Basis.looking_at(-target_dir, Vector3.UP)
 					%Armature.basis = %Armature.basis.slerp(modelDesired, delta * 5.0)
 			else:
 				disableLockOn(forward)
@@ -130,8 +145,9 @@ func handleCameraPosition(delta, forward, player) -> void:
 				dir = player.velocity.normalized()
 			dir.y = 0
 				
-			var desired = Transform3D().looking_at(-dir, Vector3.UP).basis
-			%Armature.basis = %Armature.basis.slerp(desired, delta * 5.0)
+			if dir != Vector3.ZERO:
+				var desired = Transform3D().looking_at(-dir, Vector3.UP).basis
+				%Armature.basis = %Armature.basis.slerp(desired, delta * 5.0)
 
 func _process(delta):
 	var player = get_tree().get_first_node_in_group("Player")
