@@ -38,7 +38,14 @@ func _ready():
 	add_to_group("Player")
 	$AnimationTree.active = true
 	$AnimationPlayer.animation_finished.connect(Callable(self, "_on_animation_tree_animation_finished"))
-	sword_offset = %HandBone.global_transform.affine_inverse() * %HandPivot.global_transform
+	
+	# Clean both transforms before computing the offset
+	var clean_bone = %HandBone.global_transform
+	clean_bone.basis = clean_bone.basis.orthonormalized()
+	var clean_pivot = %HandPivot.global_transform
+	clean_pivot.basis = clean_pivot.basis.orthonormalized()
+	
+	sword_offset = clean_bone.affine_inverse() * clean_pivot
 
 
 func getHeight():
@@ -98,6 +105,7 @@ func _snap_up_stairs_check(delta) -> bool:
 				_snapped_to_stair_last_frame = true
 				return true
 	return false
+
 
 func on_equip_tween_finished():
 	equip_tween = create_tween()
@@ -372,3 +380,7 @@ func attackFinished() -> void:
 
 func flipBlockMovement() -> void:
 	blockMovement = !blockMovement
+	
+func activateSoundEmision(maxDistance: int, maxBounces: int, forceActivate:= false) -> void:
+	if !stopped or forceActivate:
+		$RaySoundEmision.update(maxDistance, maxBounces)

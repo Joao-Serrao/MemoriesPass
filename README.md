@@ -12,6 +12,8 @@
 - **Lock-On Mechanic**: Supports multiple enemies and handles various edge cases.
 - **Original 3D Models**: Custom characters and environment assets.
 - **Polished Medieval Village Environment**: Textures provided by PolyHaven.
+- **Custom sound emission system**: Uses raycasting to realistically propogate sound to enemies.
+- **State based enemy AI**: Uses multiple states and systems for movement and player detection.
 
 ---
 
@@ -27,6 +29,7 @@
 | Q | Toggle Lock-On |
 | Left / Right Arrows | Switch Target |
 | Scroll Wheel | Zoom camera |
+| E | Interact with object (at the moment just doors)
 | X | Quit game |
 
 ---

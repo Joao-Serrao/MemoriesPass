@@ -1,0 +1,191 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqudon63tqrnp"]
+
+[ext_resource type="Script" uid="uid://by5t83agtiaf8" path="res://scripts/object/doorStartUp.gd" id="1_7q8gg"]
+[ext_resource type="PackedScene" uid="uid://dpndv2nn2338o" path="res://scenes/model/parts/circular_old_wooden_door.tscn" id="1_h85uy"]
+[ext_resource type="Script" uid="uid://ngtv7ip65hbw" path="res://scripts/object/door.gd" id="1_qncam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q8gg"]
+size = Vector3(1.7818604, 2.0072021, 0.102874756)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ln341"]
+height = 0.11846924
+radius = 0.8984375
+
+[sub_resource type="Animation" id="Animation_qncam"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hinge/StaticBody3D:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7q8gg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hinge/StaticBody3D:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ln341"]
+resource_name = "OpenOutwards"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hinge/StaticBody3D:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cm7xj"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hinge/StaticBody3D:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mnnv2"]
+resource_name = "CloseOutwards"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hinge/StaticBody3D:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mnnv2"]
+_data = {
+&"Close": SubResource("Animation_cm7xj"),
+&"CloseOutwards": SubResource("Animation_mnnv2"),
+&"Open": SubResource("Animation_qncam"),
+&"OpenOutwards": SubResource("Animation_ln341"),
+&"RESET": SubResource("Animation_7q8gg")
+}
+
+[node name="Circular_Wooden_Door" type="Node3D"]
+script = ExtResource("1_7q8gg")
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842, 0.15, 0)
+enabled = false
+start_position = Vector3(0, 0, 1)
+end_position = Vector3(0, 0, -1)
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge" node_paths=PackedStringArray("animationPlayer")]
+collision_layer = 20
+collision_mask = 23
+input_ray_pickable = false
+script = ExtResource("1_qncam")
+animationPlayer = NodePath("../../AnimationPlayer")
+
+[node name="circularOldWoodenDoor2" parent="Hinge/StaticBody3D" instance=ExtResource("1_h85uy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84195304, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82928467, 1.0050659, 0.00032043457)
+shape = SubResource("BoxShape3D_7q8gg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.842, 1.9230576, -0.00894165)
+shape = SubResource("CylinderShape3D_ln341")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mnnv2")
+}

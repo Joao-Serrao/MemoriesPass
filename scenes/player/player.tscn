@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=9 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Script" uid="uid://7i2x3ia41kmf" path="res://scripts/player/playerGd.gd" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://c7yv1ayxievc5" path="res://scripts/player/spring_arm_3d.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cx7ph4f4py1r2" path="res://source/glb/headless_chicken_GLB.tscn" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://b05gsvcw6i7ul" path="res://scripts/player/interactionDetection.gd" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sweqy"]
 
@@ -13,7 +14,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_qhqgy"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-collision_mask = 14
+collision_mask = 30
 collision_priority = 10.0
 script = ExtResource("1_dqkch")
 
@@ -28,6 +29,7 @@ unique_name_in_owner = true
 [node name="headlessChicken" parent="Pivot" instance=ExtResource("3_lvxji")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = null
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 unique_name_in_owner = true
@@ -46,6 +48,7 @@ collision_mask = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StairBelowRayCast3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.75, 0)
+visible = false
 mesh = SubResource("BoxMesh_dqkch")
 
 [node name="StairAheadRayCast3D" type="RayCast3D" parent="."]
@@ -54,6 +57,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.76322514)
 target_position = Vector3(0, -0.55, 0)
 collision_mask = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StairAheadRayCast3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="RayCast3D" type="RayCast3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.566, 0)
+collision_mask = 16
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+script = ExtResource("4_lvxji")
+player = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RayCast3D"]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, -1.1112334, -0.0041935444)
 mesh = SubResource("BoxMesh_qhqgy")
+skeleton = NodePath("../../StairAheadRayCast3D")

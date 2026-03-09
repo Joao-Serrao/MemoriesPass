@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://64frlykn62x4"]
+
+[ext_resource type="Script" uid="uid://ohot5yhc03al" path="res://ray_sound_emision.gd" id="1_8yhw3"]
+
+[node name="RaySoundEmision" type="Node3D"]
+script = ExtResource("1_8yhw3")

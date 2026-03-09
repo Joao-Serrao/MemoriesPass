@@ -1,0 +1,25 @@
+func update1(maxDistance: int, maxBounces) -> void:
+	for ray in dir.keys():
+		
+		ray.position = self.position
+		ray.target_position = dir[ray] * maxDistance
+			
+		ray.force_raycast_update()
+		
+		var bounces = 0
+		
+		while (ray.is_colliding() and bounces < maxBounces):
+			bounces += 1
+			
+			var collisionPoint = to_local(ray.get_collision_point())
+			var collisionNormal = ray.get_collision_normal()
+			var distanceTravelled = collisionPoint.length()
+			
+			var incoming_dir = collisionPoint.normalized()
+			var reflected_dir = (incoming_dir - 2*(incoming_dir.dot(collisionNormal))*collisionNormal).normalized()
+			
+			ray.position = collisionPoint
+			
+			ray.target_position = reflected_dir * (maxDistance - distanceTravelled)
+			
+			ray.force_raycast_update()
